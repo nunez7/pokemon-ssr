@@ -1,4 +1,4 @@
-const TOTAL_POKEMONS = 10;
+const TOTAL_POKEMONS = 151;
 const TOTAL_PAGES = 5;
 
 ( async() => {
@@ -10,7 +10,13 @@ const TOTAL_PAGES = 5;
     let fileContent = pokemonsIds.map(id => `/pokemons/${id}`).join('\n');
     let fileContentPages = pageNumbers.map(page => `/pokemons/page/${page}`).join('\n');
 
-    let todasPages = fileContent + '\n' + fileContentPages;
+    //Por nombre de pokemons (basado en peticiones)
+    const pokemonsNames = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${TOTAL_POKEMONS}`)
+    .then(res => res.json());
+
+    let fileContentNames = pokemonsNames.results.map(pokemon => `/pokemons/${pokemon.name}`).join('\n');
+
+    let todasPages = fileContent + '\n' + fileContentNames;
 
     //Crear el archivo
     const fs = require('fs');
