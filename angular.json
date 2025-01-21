@@ -29,6 +29,11 @@
             "styles": [
               "src/styles.css"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src"
+              ]
+           },
             "scripts": [],
             "server": "src/main.server.ts",
             "outputMode": "server",

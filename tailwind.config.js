@@ -15,6 +15,9 @@ module.exports = {
       fadeIn: 'fadeIn .2s ease-in-out',
     }
   },
-  plugins: [],
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  }
 }
-
+}
