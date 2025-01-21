@@ -17,13 +17,13 @@ import { Title } from '@angular/platform-browser';
 })
 export default class PokemonsPageComponent implements OnInit{
 
-  public isLoading = signal(true);
+  //public isLoading = signal(true);
   private readonly pokemonsService = inject(PokemonsService);
   public pokemons = signal<SimplePokemon[]>([]);
 
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
-  private title = inject(Title);
+  private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
+  private readonly title = inject(Title);
   
   public currentPage = toSignal<number>(
     this.route.queryParamMap.pipe(
